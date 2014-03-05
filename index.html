@@ -1,0 +1,402 @@
+<html manifest="demo.manifest"><head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="apple-touch-fullscreen" content="yes">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="apple-touch-icon" href="imagenes/icono.png">
+        <link rel="apple-touch-startup-image" href="imagenes/start.png">
+		<title>Alex y Raquel</title>
+		<script type="text/javascript" charset="utf-8" src="cordova-1.5.0.js"></script>
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css">
+		<link rel="stylesheet" media="all and (orientation:portrait)" href="style.css">
+		<link rel="stylesheet" media="all and (orientation:landscape)" href="style_apaisado.css">
+		<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
+		
+		<link rel="stylesheet" href="gallery/add2home.css">
+        <script type="application/javascript" src="gallery/add2home.js"></script>
+		
+		<link href="gallery/jquery-mobile.css" type="text/css" rel="stylesheet">
+		<link href="gallery/photoswipe.css" type="text/css" rel="stylesheet">
+		<script type="text/javascript" src="gallery/klass.min.js"></script>
+		<script type="text/javascript" src="gallery/code.photoswipe.jquery-3.0.4.min.js"></script>
+	
+		<script>
+			function hideAddressBar() {
+				if(!window.location.hash) {
+					if(document.height < window.outerHeight) {
+						document.body.style.height = (window.outerHeight + 50) + 'px';
+					}
+
+					setTimeout(function() {
+						window.scrollTo(0, 1);
+					}, 50);
+				}
+			}
+
+
+			window.addEventListener("load", function() {
+				if(!window.pageYOffset) {
+					hideAddressBar();
+				}
+			});
+			window.addEventListener("orientationchange", hideAddressBar);
+			
+			(function(window, $, PhotoSwipe){
+			$(document).ready(function(){
+				$('div.gallery-page')
+					.live('pageshow', function(e){
+						var 
+							currentPage = $(e.target),
+							options = {},
+							photoSwipeInstance = $("ul.gallery a", e.target).photoSwipe(options,  currentPage.attr('id'));
+						return true;
+					})
+					.live('pagehide', function(e){
+						var 
+							currentPage = $(e.target),
+							photoSwipeInstance = PhotoSwipe.getInstance(currentPage.attr('id'));
+						if (typeof photoSwipeInstance != "undefined" && photoSwipeInstance != null) {
+							PhotoSwipe.detatch(photoSwipeInstance);
+						}
+						return true;
+					});
+			});
+		}(window, window.jQuery, window.Code.PhotoSwipe));
+		
+		
+		</script>
+	</head>
+	<body>
+		<!-- Menú principal -->
+		<div data-role="page" id="menu" class="fondo">
+			<div data-role="content">
+				<img id="logo" src="imagenes/logo.png">
+				<div class="ui-grid-a" align="center" id="grid">
+					<div class="ui-block-a">
+						<a href="#nosotros" data-transition="slide"> <img src="imagenes/nosotros.png"></a>
+					</div>
+					<div class="ui-block-b">
+						<a href="#ceremonia" data-transition="slide"> <img src="imagenes/ceremonia.png"> </a>
+					</div>
+				</div>
+				<div class="ui-grid-b" align="center" id="grid">
+					<div class="ui-block-a">
+						<a href="#banquete" data-transition="slide"> <img src="imagenes/banquete.png"> </a>
+					</div>
+					<div class="ui-block-b">
+						<a href="#contacta" data-transition="slide"> <img src="imagenes/contacta.png"> </a>
+					</div>
+					<div class="ui-block-c">
+						<a href="#galeria" data-transition="slide"> <img src="imagenes/galeria.png"> </a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Nosotros -->
+		<div data-role="page" id="nosotros" class="fondo">
+			<div data-role="header" data-position="fixed">
+				<a href="#menu" data-icon="home" data-transition="slide" data-direction="reverse">Menú</a>
+				<h1> Alex </h1>
+			</div>
+			<div data-role="content">
+				<img class="imagen" src="imagenes/fotoel.png">
+				<p>
+					Alex, de 31 años, nacido en Casillas y de profesión informático, ha decidido celebrar una gran fiesta. <br>El motivo no puede ser mejor: celebrar su boda con Raquel para la que cuenta con todos sus amigos y familiares.
+				</p>
+			</div>
+			<div data-role="footer" data-id="infoFooter" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li>
+							<a href="#nosotros" data-transition="flip" class="ui-btn-active" id="btn-active">Alex</a>
+						</li>
+						<li>
+							<a href="#nosotrosb" data-transition="flip">Raquel</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- Nosotros Pagina b -->
+		<div data-role="page" id="nosotrosb" class="fondo">
+			<div data-role="header" data-position="fixed">
+				<a href="#menu" data-icon="home" data-transition="slide" data-direction="reverse">Menú</a>
+				<h1> Raquel </h1>
+			</div>
+			<div data-role="content">
+				<img class="imagen" src="imagenes/fotoella.png">
+				<p>
+					Raquel, de 28 años, nacida en Cobatillas y de profesión artista, está preparando junto con Alex una gran fiesta de celebración con motivo de su próxima boda en la que estarán todos sus amigos y familiares.
+				</p>
+			</div>
+			<div data-role="footer" data-id="infoFooter" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li>
+							<a href="#nosotros" data-transition="flip">Alex</a>
+						</li>
+						<li>
+							<a href="#nosotrosb" class="ui-btn-active" id="btn-active" data-transition="flip">Raquel</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- Ceremonia-->
+		<div data-role="page" id="ceremonia" class="fondo">
+			<div data-role="header" data-position="fixed">
+				<a href="#menu" data-icon="home" data-transition="slide" data-direction="reverse">Menú</a>
+				<h1> La ceremonia </h1>
+			</div>
+			<div data-role="content">
+				<img class="imagen" src="imagenes/ceremonialugar.png">
+				<p>
+					Tenemos el gusto de comunicaros nuestro enlace el 13 de septiembre de 2014
+				</p>
+				<p>
+					La ceremonia será a las 17:30 en la Iglesia de Cobatillas.
+				</p>
+			</div>
+			<div data-role="footer" data-id="ceremoniaFooter" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li>
+							<a href="#ceremonia" class="ui-btn-active" id="btn-active" data-transition="flip">Cuándo</a>
+						</li>
+						<li>
+							<a href="#ceremoniab" data-transition="flip">Dónde</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- La Ceremonia B -->
+		<div data-role="page" class="fondo" id="ceremoniab">
+			<div data-role="header" data-position="fixed">
+				<a href="#menu" data-icon="home" data-transition="slide" data-direction="reverse">Menú</a>
+				<h1> La ceremonia </h1>
+			</div>
+			<div data-role="content">
+				<ul data-role="listview" data-inset="true">
+					<li data-role="list-divider">
+						Iglesia de Cobatillas
+					</li>
+					<li>
+						<a href="http://goo.gl/maps/CX5R3">
+						<div class="icono-en-lista"><img src="imagenes/mapa.png">
+						</div> <h1>Ver en el mapa</h1>
+						<p>
+							Cobatillas, Murcia, España
+						</p></a>
+					</li>
+					
+				</ul>
+			</div>
+			<div data-role="footer" data-id="ceremoniaFooter" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li>
+							<a href="#ceremonia" data-transition="flip">Cuándo</a>
+						</li>
+						<li>
+							<a href="#ceremoniab" class="ui-btn-active" id="btn-active" data-transition="flip">Dónde</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- El banquete-->
+		<div data-role="page" id="banquete" class="fondo">
+			<div data-role="header" data-position="fixed">
+				<a href="#menu" data-icon="home" data-transition="slide" data-direction="reverse">Menú</a>
+				<h1> El banquete </h1>
+			</div>
+			<div data-role="content">
+				<img class="imagen" src="imagenes/banquetelugar.png">
+				<p>
+					Seguimos, a continuación, con la celebración en el Restaurante Larache.
+				</p>
+			</div>
+			<div data-role="footer" data-id="ceremoniaFooter" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li>
+							<a href="#banquete" class="ui-btn-active" id="btn-active" data-transition="flip">El sitio</a>
+						</li>
+						<li>
+							<a href="#banqueteb" data-transition="flip">Cómo llegar</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- La Ceremonia B -->
+		<div data-role="page" class="fondo" id="banqueteb">
+			<div data-role="header" data-position="fixed">
+				<a href="#menu" data-icon="home" data-transition="slide" data-direction="reverse">Menú</a>
+				<h1> El banquete </h1>
+			</div>
+			<div data-role="content">
+				<ul data-role="listview" data-inset="true">
+					<li data-role="list-divider">
+						Restaurante Larache
+					</li>
+					<li>
+						<a href="https://maps.google.es/maps?q=cobatillas&hl=es&ie=UTF8&ll=38.000683,-1.017171&spn=0.000762,0.001635&sll=37.988618,-1.13004&sspn=0.097004,0.209255&t=h&hnear=Cobatillas,+Murcia,+Regi%C3%B3n+de+Murcia&z=20&layer=c&cbll=38.000683,-1.017171&panoid=QnOx38UDsFQWnv_IMJ4ZhQ&cbp=12,222.18,,0,-4.98">
+						<div class="icono-en-lista"><img src="imagenes/mapa.png">
+						</div> <h1>Ver en el mapa</h1>
+						<p>
+							Ctra. San Javier, Km 11, 30589 Los Ramos, Murcia
+						</p></a>
+					</li>
+					
+				</ul>
+			</div>
+			<div data-role="footer" data-id="ceremoniaFooter" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li>
+							<a href="#ceremonia" data-transition="flip">El sitio</a>
+						</li>
+						<li>
+							<a href="#ceremoniab" class="ui-btn-active" id="btn-active" data-transition="flip">Cómo llegar</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- Contacta -->
+		<div data-role="page" class="fondo" id="contacta">
+			<div data-role="header" data-position="fixed">
+				<a href="#menu" data-icon="home" data-transition="slide" data-direction="reverse">Menú</a>
+				<h1> Contacta </h1>
+			</div>
+			<div data-role="content">
+				<ul data-role="listview" data-inset="true">
+					
+					<li>
+						<a href="tel:659901008">
+						<div class="icono-en-lista"><img src="imagenes/movil.png">
+						</div> <h1>Teléfono móvil</h1>
+						<p>
+							659 90 10 08
+						</p></a>
+					</li>
+				</ul>
+			</div>
+			<div data-role="footer" data-id="contactaFooter" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li>
+							<a href="#contacta" class="ui-btn-active" id="btn-active" data-transition="flip">Con Alex</a>
+						</li>
+						<li>
+							<a href="#contactab" data-transition="flip">Con Raquel</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- Contacta B -->
+		<div data-role="page" class="fondo" id="contactab">
+			<div data-role="header" data-position="fixed">
+				<a href="#menu" data-icon="home" data-transition="slide" data-direction="reverse">Menú</a>
+				<h1> Contacta </h1>
+			</div>
+			<div data-role="content">
+				<ul data-role="listview" data-inset="true">
+					
+					<li>
+						<a href="tel:690120495">
+						<div class="icono-en-lista"><img src="imagenes/movil.png">
+						</div> <h1>Teléfono móvil</h1>
+						<p>
+							690 120 495
+						</p></a>
+					</li>
+					
+				</ul>
+			</div>
+			<div data-role="footer" data-id="contactaFooter" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li>
+							<a href="#contacta" data-transition="flip">Con Alex</a>
+						</li>
+						<li>
+							<a href="#contactab" class="ui-btn-active" id="btn-active" data-transition="flip">Con Raquel</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- Lista de boda -->
+		<div data-role="page" class="fondolargo" id="lista">
+			<div data-role="header" data-position="fixed">
+				<a href="#menu" data-icon="home" data-transition="slide" data-direction="reverse">Menú</a>
+				<h1> Lista de boda </h1>
+			</div>
+			<div data-role="content">
+				<ul data-role="listview" data-inset="true">
+					<li>
+						<h1>Cámara video</h1>
+					</li>
+					<li>
+						<h1>Cámara fotos</h1>
+					</li>
+					<li>
+						<h1>Televisor TFT</h1>
+					</li>
+					<li>
+						<h1>Lavabajillas</h1>
+					</li>
+					<li>
+						<h1>Lavadora</h1>
+					</li>
+					<li>
+						<h1>Batidora</h1>
+					</li>
+					<li>
+						<h1>Colchón</h1>
+					</li>
+					<li>
+						<h1>Sofá</h1>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- Galería -->
+		<div data-role="page" data-add-back-btn="true" id="galeria" class="gallery-page">
+			<div data-role="header" data-position="fixed">
+				<a href="#menu" data-icon="home" data-transition="slide" data-direction="reverse">Menú</a>
+				<h1> Galería </h1>
+			</div>
+			<div data-role="content">
+				<img class="logopeque" src="imagenes/logo.png">
+				<ul class="gallery">
+					<li>
+						<a href="imagenes/full/imagen1.jpg" rel="external"><img src="imagenes/thumb/imagen1.jpg" alt="Ana y Carlos"></a>
+					</li>
+					<li>
+						<a href="imagenes/full/imagen2.jpg" rel="external"><img src="imagenes/thumb/imagen2.jpg" alt="Ana y Carlos"></a>
+					</li>
+					<li>
+						<a href="imagenes/full/imagen3.jpg" rel="external"><img src="imagenes/thumb/imagen3.jpg" alt="Ana y Carlos"></a>
+					</li>
+					<li>
+						<a href="imagenes/full/imagen4.jpg" rel="external"><img src="imagenes/thumb/imagen4.jpg" alt="Ana y Carlos"></a>
+					</li>
+					<li>
+						<a href="imagenes/full/imagen5.jpg" rel="external"><img src="imagenes/thumb/imagen5.jpg" alt="Ana y Carlos"></a>
+					</li>
+					<li>
+						<a href="imagenes/full/imagen6.jpg" rel="external"><img src="imagenes/thumb/imagen6.jpg" alt="Ana y Carlos"></a>
+					</li>
+				</ul>
+			</div>
+			<!-- Fin del contenido-->
+		</div>
+	
+</body></html>

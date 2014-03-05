@@ -1,0 +1,43 @@
+#logo
+{ 
+	width: 0%;
+}
+
+#grid{
+	margin-top: -20px;
+}
+.fondo
+{
+    background-image: url("imagenes/fondoapaisado.jpg");
+    background-attachment:fixed;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.fondolargo
+{
+     background-image: url("imagenes/fondoexpansible.jpg");
+}
+
+#galeria
+{
+    background-image: url("imagenes/fondoapaisado.jpg");
+    background-attachment:fixed;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.letramenu{
+	margin-top: -3px;
+	font-weight: bold;
+	color: #996633;
+}
+
+#btn-active{
+	background:#ffcc33 !important;
+}		
+
+.imagen{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}		
