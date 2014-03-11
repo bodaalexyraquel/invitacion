@@ -8,22 +8,52 @@
 
 .fondo
 {
-    background-image: url("imagenes/fondo.jpg");
+    background-image: url("imagenes/thin.jpg");
     background-attachment:fixed;
     background-repeat: no-repeat;
     background-size: 100% 100%;
+	text-align:center;
+	margin-left:auto;
+	margin-right:auto;
+
 }
 
+#intro{
+     background-image: url("imagenes/thin.jpg");
+    background-attachment:fixed;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+	text-align:center;
+	margin-left:auto;
+	margin-right:auto;
+}
+.caja-intro {
+		margin-left:auto;
+	margin-right:auto;
 
+/*
+position:absolute;
+left:5%;
+bottom:20%;
+*/
+}
+
+.ui-content{
+	overflow:inherit;
+}
+
+#menu-logos{
+	margin-top:20%;
+}
 
 .fondolargo
 {
-    background-image: url("imagenes/fondoexpansible.jpg");
+    background-image: url("imagenes/thin.jpg");
 }
 
 #galeria
 {
-    background-image: url("imagenes/fondo.jpg");
+    background-image: url("imagenes/thin.jpg");
     background-attachment:fixed;
     background-repeat: no-repeat;
     background-size: 100% 100%;

@@ -1,13 +1,7 @@
 <html manifest="demo.manifest"><head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
-		<meta name="apple-touch-fullscreen" content="yes">
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-		<link rel="apple-touch-icon" href="imagenes/icono.png">
-        <link rel="apple-touch-startup-image" href="imagenes/start.png">
 		<title>Alex y Raquel</title>
-		<script type="text/javascript" charset="utf-8" src="cordova-1.5.0.js"></script>
 		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css">
 		<link rel="stylesheet" media="all and (orientation:portrait)" href="style.css">
 		<link rel="stylesheet" media="all and (orientation:landscape)" href="style_apaisado.css">
@@ -65,14 +59,25 @@
 			});
 		}(window, window.jQuery, window.Code.PhotoSwipe));
 		
-		
+		$(function() {
+  setTimeout(hideSplash, 2000);
+});
+
+function hideSplash() {
+  $.mobile.changePage("#menu", "fade");
+}
 		</script>
+        
 	</head>
 	<body>
 		<!-- Menú principal -->
+        <div data-role="page" data-theme="b" id="intro"> 
+    		<img  class="caja-intro" src="imagenes/intro-cabecera.png" alt="intro" />
+		</div>
+
+        
 		<div data-role="page" id="menu" class="fondo">
-			<div data-role="content">
-				<img id="logo" src="imagenes/logo.png">
+			<div data-role="content" id="menu-logos">
 				<div class="ui-grid-a" align="center" id="grid">
 					<div class="ui-block-a">
 						<a href="#nosotros" data-transition="slide"> <img src="imagenes/nosotros.png"></a>
@@ -81,17 +86,21 @@
 						<a href="#ceremonia" data-transition="slide"> <img src="imagenes/ceremonia.png"> </a>
 					</div>
 				</div>
-				<div class="ui-grid-b" align="center" id="grid">
+				<div class="ui-grid-b" align="center" id="grid" style="margin-top:20px;">
 					<div class="ui-block-a">
 						<a href="#banquete" data-transition="slide"> <img src="imagenes/banquete.png"> </a>
 					</div>
 					<div class="ui-block-b">
-						<a href="#contacta" data-transition="slide"> <img src="imagenes/contacta.png"> </a>
+						<a href="#regalo" data-transition="slide"> <img src="imagenes/regalo.png"> </a>
 					</div>
 					<div class="ui-block-c">
 						<a href="#galeria" data-transition="slide"> <img src="imagenes/galeria.png"> </a>
 					</div>
-				</div>
+                                
+                     </div>
+						
+    		<img  class="caja-intro" src="imagenes/logo.png" alt="intro" style="margin-top:20%" />
+
 			</div>
 		</div>
 		<!-- Nosotros -->
@@ -105,6 +114,18 @@
 				<p>
 					Alex, de 31 años, nacido en Casillas y de profesión informático, ha decidido celebrar una gran fiesta. <br>El motivo no puede ser mejor: celebrar su boda con Raquel para la que cuenta con todos sus amigos y familiares.
 				</p>
+                				<ul data-role="listview" data-inset="true">
+					
+					<li>
+						<a href="tel:659901008">
+						<div class="icono-en-lista"><img src="imagenes/movil.png">
+						</div> <h1>Teléfono móvil</h1>
+						<p>
+							659 90 10 08
+						</p></a>
+					</li>
+				</ul>
+
 			</div>
 			<div data-role="footer" data-id="infoFooter" data-position="fixed">
 				<div data-role="navbar">
@@ -130,6 +151,19 @@
 				<p>
 					Raquel, de 28 años, nacida en Cobatillas y de profesión artista, está preparando junto con Alex una gran fiesta de celebración con motivo de su próxima boda en la que estarán todos sus amigos y familiares.
 				</p>
+               <ul data-role="listview" data-inset="true">
+					
+					<li>
+						<a href="tel:690120495">
+						<div class="icono-en-lista"><img src="imagenes/movil.png">
+						</div> <h1>Teléfono móvil</h1>
+						<p>
+							690 120 495
+						</p></a>
+					</li>
+					
+				</ul>
+
 			</div>
 			<div data-role="footer" data-id="infoFooter" data-position="fixed">
 				<div data-role="navbar">
@@ -276,103 +310,15 @@
 			</div>
 		</div>
 		<!-- Contacta -->
-		<div data-role="page" class="fondo" id="contacta">
-			<div data-role="header" data-position="fixed">
-				<a href="#menu" data-icon="home" data-transition="slide" data-direction="reverse">Menú</a>
-				<h1> Contacta </h1>
-			</div>
-			<div data-role="content">
-				<ul data-role="listview" data-inset="true">
-					
-					<li>
-						<a href="tel:659901008">
-						<div class="icono-en-lista"><img src="imagenes/movil.png">
-						</div> <h1>Teléfono móvil</h1>
-						<p>
-							659 90 10 08
-						</p></a>
-					</li>
-				</ul>
-			</div>
-			<div data-role="footer" data-id="contactaFooter" data-position="fixed">
-				<div data-role="navbar">
-					<ul>
-						<li>
-							<a href="#contacta" class="ui-btn-active" id="btn-active" data-transition="flip">Con Alex</a>
-						</li>
-						<li>
-							<a href="#contactab" data-transition="flip">Con Raquel</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<!-- Contacta B -->
-		<div data-role="page" class="fondo" id="contactab">
-			<div data-role="header" data-position="fixed">
-				<a href="#menu" data-icon="home" data-transition="slide" data-direction="reverse">Menú</a>
-				<h1> Contacta </h1>
-			</div>
-			<div data-role="content">
-				<ul data-role="listview" data-inset="true">
-					
-					<li>
-						<a href="tel:690120495">
-						<div class="icono-en-lista"><img src="imagenes/movil.png">
-						</div> <h1>Teléfono móvil</h1>
-						<p>
-							690 120 495
-						</p></a>
-					</li>
-					
-				</ul>
-			</div>
-			<div data-role="footer" data-id="contactaFooter" data-position="fixed">
-				<div data-role="navbar">
-					<ul>
-						<li>
-							<a href="#contacta" data-transition="flip">Con Alex</a>
-						</li>
-						<li>
-							<a href="#contactab" class="ui-btn-active" id="btn-active" data-transition="flip">Con Raquel</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
 		<!-- Lista de boda -->
-		<div data-role="page" class="fondolargo" id="lista">
+		<div data-role="page" class="fondolargo" id="regalo">
 			<div data-role="header" data-position="fixed">
 				<a href="#menu" data-icon="home" data-transition="slide" data-direction="reverse">Menú</a>
-				<h1> Lista de boda </h1>
+				<h1> Regalo </h1>
 			</div>
 			<div data-role="content">
-				<ul data-role="listview" data-inset="true">
-					<li>
-						<h1>Cámara video</h1>
-					</li>
-					<li>
-						<h1>Cámara fotos</h1>
-					</li>
-					<li>
-						<h1>Televisor TFT</h1>
-					</li>
-					<li>
-						<h1>Lavabajillas</h1>
-					</li>
-					<li>
-						<h1>Lavadora</h1>
-					</li>
-					<li>
-						<h1>Batidora</h1>
-					</li>
-					<li>
-						<h1>Colchón</h1>
-					</li>
-					<li>
-						<h1>Sofá</h1>
-					</li>
-				</ul>
+				<p>El número de cuenta es el:</p>
+                IBAN: XXXXXXXXXXXXXXXXXXXXXXXXXX
 			</div>
 		</div>
 		<!-- Galería -->
